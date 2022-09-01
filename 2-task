@@ -1,0 +1,10 @@
+public static int dont_give_me_five(int start, int end){
+        List<Integer> newArr = new ArrayList<>();
+        for (int i = start; i <= end; i++) {
+            if(!String.valueOf(i).contains("5"))
+            {
+                newArr.add(i);
+            }
+        }
+        return newArr.size();
+    }
