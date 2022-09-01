@@ -1,0 +1,69 @@
+
+    public static String which_finger(int finger){
+        String result = null;
+        int vertexCount = 10000;
+        int[][] graph = new int[vertexCount][5];
+        int numbers = 6;
+        int counter = 1;
+        int counterSecond = 0;
+        for (int i = 0; i < vertexCount; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (i == 0){
+                    counterSecond++;
+                    graph[i][j]= counterSecond;
+                }
+            }
+        }
+        for (int i = 0; i < vertexCount; i++) {
+            if (i != 0) {
+                if (counter % 2 == 1) {
+                    for (int j = 4; j >= 0; j--) {
+                        if (j != 4) {
+                            graph[i][j] = numbers;
+                            numbers++;
+                        } else {
+                            graph[i][j] = -100;
+                        }
+                    }
+                    counter++;
+                } else {
+                    for (int j = 0; j < 5; j++) {
+                        if (j != 0) {
+                            graph[i][j] = numbers;
+                            numbers++;
+                        } else {
+                            graph[i][j] = -100;
+                        }
+                    }
+                    counter++;
+                }}
+        }
+        
+        
+        
+        for (int q = 0; q < graph.length; q++) {
+            for (int w = 0; w < graph[q].length; w++) {
+                int endVertex = graph[q][w];
+                if(endVertex == finger){
+                    if(w == 0){
+                        result = "Большой палец";
+                    
+                    } else if (w == 1) {
+                        result = "Указательный палец";
+
+                    } else if (w == 2) {
+                        result = "Средний палец";
+
+                    } else if (w == 3) {
+                        result = "Безымянный палец";
+
+                    } else if (w == 4) {
+                        result = "Мизинец";
+
+                    }
+                }
+            }
+        }
+        
+        return result;
+    }
